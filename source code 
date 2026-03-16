@@ -1,0 +1,96 @@
+#include <stdarg.h>
+#include <string.h>
+#include <malloc.h>
+#include <errno.h>
+#define kernel_mode "2.5"
+typedef unsigned long u32;
+typedef unsigned short u16;
+
+//gpio enable
+extern systemClock_config();
+
+//compactação de struct
+#pragma packed(1)
+
+#define assinatura 0x5555eee
+#define code 0x5555eee
+
+#ifdef armcortexh7
+//para sdcards e memoiaram externa
+#define SDMMC1 sizeof(*volatile(0x52004000)(u16*)
+
+#define SDMMC2 sizeof(*volatile(0x48022400)(u16*)
+
+//endereços da memoria ram da sansung
+#define first_ram sizeof(*volatile(536870912)(u32*)
+
+#define uart (*volatile(0x48022400) printf
+
+#define uart (*volatile(0x48022400) scanf
+
+#endif
+
+// buffer para o sd card com proteção de buffer
+void buffer(char *input){
+__attribute__((aligned(4)))
+char buffer[512];
+strcpy(buffer, input);
+sizeof (buffer) - 1;
+}
+
+//funcao na flash 0x800_0000 do stm32h7
+__attribute__((section(".flashfunc")))
+int main()
+{
+int base,low_ram,high_ram,stack;
+//proteção da memoria e checagem par evitar escrita se caso um enderços estiver sendo usado
+ stack >= base && stack <(base  + high_ram);
+    {
+  stack < low_ram | stack < high_ram;
+    // Pilha está dentro da RAM das threads
+// que será exeutado denro da main
+ char *buff[];
+    if (assinatura && code){
+      frame_buffer();
+      usb();
+      memory();
+      buffer(*buff[]);
+      }
+      else {
+       extern usb_disable();
+        }
+    }
+}
+
+
+//frame buffer for stm32 ram size
+__attribute__((section(".ramfunc")))
+void frame_buffer()
+{
+  int frame_texture[32* 32];
+  int output;
+  //apliando a textura
+  output = (1 < frame_texture);
+  int color_pallete[3] = {1, 2, 3};
+}
+  //funcao para alocar memoria dinâmica
+int *ptr;
+void test(int mem, int size){
+  *ptr = (int*) malloc(sizeof(int));
+  free(ptr);
+  }
+//funcao para o usb
+void usb(){
+  extern USBD_Init();
+  extern USBD_CtlPrepareRx();
+  extern USBD_StdDevReq();
+  }
+
+//memoria externa no stm32h7 precisa de enerçoes etc
+void memory(){
+  extern EXTMEM_Init();
+  extern EXTMEM_Read();
+  extern EXTMEM_Write();
+  extern EXTMEM_Erase();
+  extern EXTMEM_MassErase();
+  }
