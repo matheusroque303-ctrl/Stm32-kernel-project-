@@ -1,3 +1,6 @@
+//primeiro teste para criar um kernel para o arm cortex m7 ainda não tem o bootloader próprio pois eu não tenho como desenvolvê-lo pois eu não tenho o vs code não tenho as sdk então está e o mais próximo que ei conseguiria fazer isso claro algumas funções como as usb são da stm32cubeide e estão como extern por falta de sdk 
+
+
 #include <stdarg.h>
 #include <string.h>
 #include <malloc.h>
